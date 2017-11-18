@@ -141,6 +141,8 @@ server.on('connection', socket => {
         let y = packet.y;
         let z = packet.z;
 
+        if(y == 0) return;
+
         if (withinBounds(x, y, z)) {
           map[x][z][y] = (packet.action == "place") ? socket.client.color : null;
           updateBlock(x, y, z);
