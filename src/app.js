@@ -177,18 +177,20 @@ server.on('connection', socket => {
     yaw: client.yaw,
     map: map
   });
-  
+
   clients.forEach(other => {
-    send(client, {
-      action: "join",
-      id: other.id,
-      color: other.color,
-      x: other.x,
-      y: other.y,
-      z: other.z,
-      pitch: other.pitch,
-      yaw: other.yaw
-    })
+    if (other) {
+      send(client, {
+        action: "join",
+        id: other.id,
+        color: other.color,
+        x: other.x,
+        y: other.y,
+        z: other.z,
+        pitch: other.pitch,
+        yaw: other.yaw
+      });
+    }
   })
 
   playerJoin(client.id, client);
