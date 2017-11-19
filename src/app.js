@@ -121,7 +121,7 @@ server.on('connection', socket => {
     color: 0xffffff,
     socket: socket,
     x: width / 2,
-    y: 6,
+    y: height + 3,
     z: depth / 2,
     pitch: 0,
     yaw: 0
